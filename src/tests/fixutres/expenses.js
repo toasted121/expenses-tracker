@@ -1,7 +1,6 @@
 import moment from 'moment';
 
-
-export default [
+const expenses = [
     {
         id: "89374edd-2b99-4974-a860-9215c211307f",
         description: "Water bill",
@@ -24,3 +23,8 @@ export default [
         createdAt: moment(0).add(4,'days').valueOf()
     }
 ];
+
+export default expenses;
+
+//const total = getExpensesTotal(expenses);
+//console.log(total);
