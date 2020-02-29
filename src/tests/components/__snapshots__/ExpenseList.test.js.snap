@@ -1,35 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render expense list with empty message 1`] = `
-<div>
-  <p>
-    No expenses
-  </p>
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-item list-item--message"
+    >
+      <span>
+        No expenses
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render expenses list with expenses 1`] = `
-<div>
-  <ExpenseListItem
-    amount={4500}
-    createdAt={0}
-    description="Water bill"
-    id="89374edd-2b99-4974-a860-9215c211307f"
-    note=""
-  />
-  <ExpenseListItem
-    amount={0}
-    createdAt={-345600000}
-    description="Gas bill"
-    id="fba19938-552e-4ee6-a218-57eba1aea2d6"
-    note=""
-  />
-  <ExpenseListItem
-    amount={109500}
-    createdAt={345600000}
-    description="Rent"
-    id="57be550b-4b83-4bb8-a36d-e3c87338a18b"
-    note=""
-  />
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <ExpenseListItem
+      amount={4500}
+      createdAt={0}
+      description="Water bill"
+      id="89374edd-2b99-4974-a860-9215c211307f"
+      note=""
+    />
+    <ExpenseListItem
+      amount={0}
+      createdAt={-345600000}
+      description="Gas bill"
+      id="fba19938-552e-4ee6-a218-57eba1aea2d6"
+      note=""
+    />
+    <ExpenseListItem
+      amount={109500}
+      createdAt={345600000}
+      description="Rent"
+      id="57be550b-4b83-4bb8-a36d-e3c87338a18b"
+      note=""
+    />
+  </div>
 </div>
 `;

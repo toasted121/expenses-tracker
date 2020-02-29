@@ -1,19 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should test expenseListItem component 1`] = `
-<div>
-  <Link
-    replace={false}
-    to="/edit/89374edd-2b99-4974-a860-9215c211307f"
-  >
-    <h3>
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/89374edd-2b99-4974-a860-9215c211307f"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
       Water bill
     </h3>
-  </Link>
-  <p>
+    <span
+      className="list-item__sub-title"
+    >
+      1st January, 1970
+    </span>
+  </div>
+  <h3
+    className="list-item__data"
+  >
     $45.00
-    -
-    1st January, 1970
-  </p>
-</div>
+  </h3>
+</Link>
 `;

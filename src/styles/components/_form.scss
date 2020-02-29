@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    > * {   //all direct descendent children
+        margin-bottom: $m-size;
+    }
+}
+
+.form-error{
+    margin: 0 0 $m-size 0;
+    font-style: italic;
+}
+
+//1.Setup header for edit expense page
+//2.Setup content container for edit expense form and remove button
+//3. Add modifier onto the remove button to change color to grey hex 888

@@ -1,2 +1,16 @@
 @import './base/settings';
 @import './base/base';
+@import './components/header';
+@import './components/page-header';
+@import './components/button';
+@import './components/input-group';
+@import './components/content-container';
+@import './components/inputs';
+@import './components/form';
+@import './components/visibility';
+@import './components/list';
+
+//1) Create input-group partial and get in loaded in
+//2) Ass selectors for input-group and input-group__item
+//3) Setup flexbox with space below the group
+//4) Setup right margin for the individual items

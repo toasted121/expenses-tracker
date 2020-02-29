@@ -4,26 +4,28 @@ import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
 export class ExpenseList extends React.Component {
-  
-  /*
-  componentDidMount(){
-    this.props.updateCount(this.props.expenses);
-    this.props.updateTotal(this.props.expenses);
-  }
-  */
 
   render(){
     return (
-    <div>
+    <div className='content-container'>
+      <div className='list-header'>
+        <div className='show-for-mobile'>Expenses</div>
+        <div className='show-for-desktop'>Expense</div>
+        <div className='show-for-desktop'>Amount</div>
+      </div>
+      <div className='list-body'>
       {
         this.props.expenses.length === 0 ? (
-          <p>No expenses</p>
+          <div className='list-item list-item--message'>
+            <span>No expenses</span>
+          </div>
         ) : (
           this.props.expenses.map((expense) => {
             return <ExpenseListItem key={expense.id} {...expense} />;
           })
         )
       }
+      </div>
     </div>
   )};
 }
@@ -33,14 +35,5 @@ const mapStateToProps = (state) => {
     expenses: selectExpenses(state.expenses, state.filters)
   };
 };
-
-/*
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateCount : (expenses) => dispatch(setSummaryCount(getExpensesCount(expenses))),
-    updateTotal : (expenses) => dispatch(setSummaryTotal(getTotalExpenses(expenses)))
-  }
-};
-*/
 
 export default connect(mapStateToProps)(ExpenseList);
