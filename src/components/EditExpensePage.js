@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { editExpense, removeExpense } from '../actions/expenses';
+import { startEditExpense, startRemoveExpense } from '../actions/expenses';
+import Modal from 'react-modal';
 
 //1) Refactor edit expense page to be a class based component this allows us to pull out the inline 
 //method definitions and define them before render within the class definition. This saves them 
@@ -18,15 +19,30 @@ import { editExpense, removeExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component{
 
+  state = {
+    openState : false
+  }
+
   onRemove = () => {
-    this.props.removeExpense({ id: this.props.expense.id });
+    this.props.startRemoveExpense({ id: this.props.expense.id });
+    this.props.history.push('/');
+  }
+
+  doNothing = () => {
     this.props.history.push('/');
   }
 
   onSubmit = (expense) => {
-    this.props.editExpense(this.props.expense.id, expense);
+    this.props.startEditExpense(this.props.expense.id, expense);
     this.props.history.push('/');
   }
+
+  onClick = () => {
+    this.setState((prevState) => ({
+      openState: !prevState.openState
+    }));
+  }
+
 
   render() {
     return (
@@ -41,8 +57,19 @@ export class EditExpensePage extends React.Component{
             expense={this.props.expense}
             onSubmit={this.onSubmit}
           />
-          <button className='button button--remove' onClick={this.onRemove}>Remove Expense</button>
+          <button className='button button--remove' onClick={this.onClick}>Remove Expense</button>
         </div>
+        <Modal isOpen={this.state.openState}
+              contentLabel = "remove expense modal"
+              closeTimeoutMS={200}
+              className="modal"
+              shouldCloseOnEsc={false}  >
+                <h3 className='modal__title'>Do you really want to remove this expense?</h3>
+                <div className="modal__buttonbox">
+                  <button className="button button--modal" onClick={this.onRemove}>Yes</button>
+                  <button className="button button--modal" onClick={this.doNothing}>No</button>
+                </div>
+        </Modal>
       </div>
     );
   }
@@ -56,8 +83,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  editExpense : (id, expense) => dispatch(editExpense(id, expense)),
-  removeExpense : (expense) => dispatch(removeExpense({ id: expense.id }))
+  startEditExpense : (id, expense) => dispatch(startEditExpense(id, expense)),
+  startRemoveExpense : (expense) => dispatch(startRemoveExpense({ id: expense.id }))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);

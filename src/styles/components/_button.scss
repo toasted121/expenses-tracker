@@ -2,13 +2,12 @@
     background: $blue;
     border: none;
     color: white;
-    display: inline-block; //this is done so the vertical pargin and padding take effect
+    //display: inline-block; //this is done so the vertical margin and padding take effect
     font-size: $font-size-large;
     font-weight: 300;
     line-height: 1;
     padding: $s-size;
     text-decoration: none;
-
 }
 
 .button--link {
@@ -17,6 +16,13 @@
 
 .button--remove{
     background: #888;
+}
+
+.button--modal{
+    background: $dark-blue;
+    //margin: $l-size;
+    height: 5rem;
+    width: 10rem;
 }
 //1. Create link modifier
 //2. Setup style to use no background
